@@ -2,9 +2,17 @@
   'use strict';
 
   var ListCtrl = function(users) {
-    this.title = 'Todo List';
+    this.usersService = users;
 
-    this.users = users.get();
+    this.initialize();
+  };
+
+  ListCtrl.prototype.initialize = function() {
+    // Setting title
+    this.title = 'AngularJS - The cool way';
+
+    // Setting users
+    this.users = this.usersService.get();
   };
 
   ListCtrl.$inject = ['users'];
