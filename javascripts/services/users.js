@@ -2,7 +2,7 @@
   'use strict';
 
   var users = function() {
-    this.usersList = [{
+    this.list = [{
       name: 'Mauricio',
       age: 24
     }, {
@@ -12,7 +12,12 @@
   };
 
   users.prototype.get = function() {
-    return this.usersList;
+    return this.list;
+  };
+
+  users.prototype.post = function(data) {
+    this.list.push(data);
+    return this.list;
   };
 
   app.service('users', users);
