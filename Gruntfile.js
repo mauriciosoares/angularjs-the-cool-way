@@ -25,6 +25,9 @@ module.exports = function(grunt) {
     'javascripts/*.js',
     'javascripts/modules/**/**/*.js'
   ];
+  config.jshint.options = {
+    debug: true
+  };
 
   // =============================================
   // watch
