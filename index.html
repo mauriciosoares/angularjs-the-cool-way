@@ -3,23 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Angular</title>
+
+  <style>
+    .error {
+      border: 1px solid red;
+    }
+  </style>
 </head>
 <body ng-app="todo">
   <div ng-controller="todo.form.controllers.List">
     <h1>{{ title }}</h1>
 
     <div>
-      <form ng-submit="saveUser()">
-        <input type="text" placeholder="Novo Usuário" ng-model="newUser.name">
+      <form ng-submit="save()" name="newUser">
+        <h2>Novo Usuário</h2>
+        <input type="text" placeholder="Nome" name="name"
+          ng-model="user.name"
+          ng-required="true"
+          ng-class="{ error: isInvalid('name') && submitted }">
+        <span ng-show="isInvalid('name')">Preencha o campo nome</span><br>
+
+        <input type="number" placeholder="Idade" name="age"
+          ng-model="user.age"
+          min="0" max="99" required
+          ng-class="{ error: isInvalid('age') && submitted }">
+        <span ng-show="newUser.age.$error.required">Preencha o campo idade</span>
+        <span ng-show="newUser.age.$error.number">Precisa ser um número</span>
+
+        {{newUser.age.$error}}
+        <button type="submit" ng-click="submitted = true">Enviar</button>
       </form>
     </div>
 
-    <div>
-      {{ initialize }}
-    </div>
-
     <ul>
-      <li ng-repeat="user in users">
+      <li ng-repeat="user in users track by $index">
         {{ user.name }} - {{ user.age }}
       </li>
     </ul>
