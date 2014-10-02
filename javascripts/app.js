@@ -1,4 +1,12 @@
 (function() {
   'use strict';
-  angular.module('todo', []);
+
+  // Define Modules
+  angular.module('todo.form');
+  angular.module('todo.shared');
+
+  angular.module('todo', [
+    'todo.form',
+    'todo.shared'
+  ]);
 } ());

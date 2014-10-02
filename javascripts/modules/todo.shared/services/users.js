@@ -20,6 +20,6 @@
     return this.list;
   };
 
-  app.service('users', users);
+  app.service('todo.shared.services.users', users);
 
-} (angular.module('todo')));
+} (angular.module('todo.shared')));

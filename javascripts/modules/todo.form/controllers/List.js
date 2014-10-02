@@ -20,7 +20,7 @@
     this.newUser = undefined;
   };
 
-  ListCtrl.$inject = ['users'];
+  ListCtrl.$inject = ['todo.shared.services.users'];
 
-  app.controller('ListCtrl', ListCtrl);
-} (angular.module('todo')));
+  app.controller('todo.form.controllers.List', ListCtrl);
+} (angular.module('todo.form')));
