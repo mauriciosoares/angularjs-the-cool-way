@@ -1,17 +1,42 @@
 module.exports = function(grunt) {
   var tasks = [
-    'grunt-contrib-concat'
+    'grunt-contrib-concat',
+    'grunt-contrib-jshint',
+    'grunt-contrib-watch'
   ];
 
   var config = {};
 
-  config.concat = {
-    dist: {
-      src: [
-        'javascripts/app.js',
-        'javascripts/modules/**/**/*.js'
-      ],
-      dest: 'javascripts/app.min.js'
+  // =============================================
+  // concat
+  config.concat = {}
+  config.concat.dist = {
+    src: [
+      'javascripts/app.js',
+      'javascripts/modules/**/**/*.js'
+    ],
+    dest: 'javascripts/app.min.js'
+  };
+
+  // =============================================
+  // jshint
+  config.jshint = {};
+  config.jshint.all = [
+    'javascripts/*.js',
+    'javascripts/modules/**/**/*.js'
+  ];
+
+  // =============================================
+  // watch
+  config.watch = {};
+  config.watch.scripts = {
+    files: [
+      'javascripts/*.js',
+      'javascripts/modules/**/**/*.js'
+    ],
+    tasks: ['jshint', 'concat'],
+    options: {
+      spawn: false,
     }
   };
 
