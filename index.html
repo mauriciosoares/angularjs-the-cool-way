@@ -5,17 +5,21 @@
   <title>Angular</title>
 </head>
 <body ng-app="todo">
-  <div ng-controller="todo.form.controllers.List as ctrl">
-    <h1>{{ ctrl.title }}</h1>
+  <div ng-controller="todo.form.controllers.List">
+    <h1>{{ title }}</h1>
 
     <div>
-      <form ng-submit="ctrl.saveUser()">
-        <input type="text" placeholder="Novo Usuário" ng-model="ctrl.newUser.name">
+      <form ng-submit="saveUser()">
+        <input type="text" placeholder="Novo Usuário" ng-model="newUser.name">
       </form>
     </div>
 
+    <div>
+      {{ initialize }}
+    </div>
+
     <ul>
-      <li ng-repeat="user in ctrl.users">
+      <li ng-repeat="user in users">
         {{ user.name }} - {{ user.age }}
       </li>
     </ul>
