@@ -9,9 +9,13 @@ module.exports = function(grunt) {
     dist: {
       src: [
         'javascripts/app.js',
-        'javascripts/modules/**/**/.js'
+        'javascripts/modules/**/**/*.js'
       ],
       dest: 'javascripts/app.min.js'
     }
   };
+
+  grunt.initConfig(config);
+
+  tasks.forEach(grunt.loadNpmTasks);
 };
