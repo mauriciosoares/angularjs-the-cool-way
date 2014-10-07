@@ -21,14 +21,16 @@
           ng-model="user.name"
           ng-required="true"
           ng-class="{ error: isInvalid('name') && submitted }">
-        <span ng-show="isInvalid('name')">Preencha o campo nome</span><br>
+        <span ng-show="isInvalid('name', 'required')">Preencha o campo nome</span><br>
 
         <input type="number" placeholder="Idade" name="age"
           ng-model="user.age"
-          min="0" max="99" required
+          min="10" max="90" required
           ng-class="{ error: isInvalid('age') && submitted }">
         <span ng-show="isInvalid('age', 'required')">Preencha o campo idade</span>
         <span ng-show="isInvalid('age', 'number')">Precisa ser um número</span>
+        <span ng-show="isInvalid('age', 'min')">Precisa ser maior que 10</span>
+        <span ng-show="isInvalid('age', 'max')">Precisa ser menor que 90</span>
         <button type="submit" ng-click="submitted = true">Enviar</button>
       </form>
     </div>
