@@ -30,6 +30,11 @@
   ListCtrl.fn.scopeEvents = {};
 
   ListCtrl.fn.scopeEvents.save = function() {
+    if(this.$scope.newUser.$invalid) {
+      this.$scope.submitted = true;
+      return;
+    }
+
     this.usersService.post(this.$scope.user);
     this.$scope.user = undefined;
     this.$scope.submitted = false;

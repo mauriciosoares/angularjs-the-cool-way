@@ -15,14 +15,13 @@
     <h1>{{ title }}</h1>
 
     <div>
-      <form ng-submit="save()" name="newUser">
+      <form ng-submit="save()" name="newUser" novalidate>
         <h2>Novo Usuário</h2>
         <input type="text" placeholder="Nome" name="name"
           ng-model="user.name"
           ng-required="true"
           ng-class="{ error: isInvalid('name') && submitted }">
         <span ng-show="isInvalid('name', 'required')">Preencha o campo nome</span><br>
-
         <input type="number" placeholder="Idade" name="age"
           ng-model="user.age"
           min="10" max="90" required
@@ -31,7 +30,7 @@
         <span ng-show="isInvalid('age', 'number')">Precisa ser um número</span>
         <span ng-show="isInvalid('age', 'min')">Precisa ser maior que 10</span>
         <span ng-show="isInvalid('age', 'max')">Precisa ser menor que 90</span>
-        <button type="submit" ng-click="submitted = true">Enviar</button>
+        <button type="submit">Enviar</button>
       </form>
     </div>
 
